@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/hero-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/hero-common/pom.xml" />
+        <option value="$PROJECT_DIR$/hero-common-config/pom.xml" />
+        <option value="$PROJECT_DIR$/hero-common-core/pom.xml" />
+        <option value="$PROJECT_DIR$/hero-api-client/pom.xml" />
+        <option value="$PROJECT_DIR$/hero-common-model/pom.xml" />
+        <option value="$PROJECT_DIR$/hero-business-model/pom.xml" />
+        <option value="$PROJECT_DIR$/hero-facade-my/pom.xml" />
+        <option value="$PROJECT_DIR$/hero-service-my/pom.xml" />
+        <option value="$PROJECT_DIR$/hero-facade-index/pom.xml" />
+        <option value="$PROJECT_DIR$/hero-service-index/pom.xml" />
+        <option value="$PROJECT_DIR$/hero-facade-shelfselect/pom.xml" />
+        <option value="$PROJECT_DIR$/hero-facade-trade/pom.xml" />
+        <option value="$PROJECT_DIR$/hero-service-trade/pom.xml" />
+        <option value="$PROJECT_DIR$/hero-facade-market/pom.xml" />
+        <option value="$PROJECT_DIR$/hero-service-market/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_9" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>

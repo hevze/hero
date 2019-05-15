@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="hero-api-client" />
+        <module name="hero-business-model" />
+        <module name="hero-common" />
+        <module name="hero-common-config" />
+        <module name="hero-common-core" />
+        <module name="hero-common-model" />
+        <module name="hero-facade-index" />
+        <module name="hero-facade-market" />
+        <module name="hero-facade-my" />
+        <module name="hero-facade-shelfselect" />
+        <module name="hero-facade-trade" />
+        <module name="hero-service-index" />
+        <module name="hero-service-market" />
+        <module name="hero-service-my" />
+        <module name="hero-service-trade" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hero-api-client" target="1.8" />
+      <module name="hero-api-client (1)" target="1.8" />
+      <module name="hero-business-model" target="1.6" />
+      <module name="hero-common" target="1.8" />
+      <module name="hero-common-config" target="1.6" />
+      <module name="hero-common-core" target="1.6" />
+      <module name="hero-common-model" target="1.8" />
+      <module name="hero-facade-index" target="1.8" />
+      <module name="hero-facade-market" target="1.8" />
+      <module name="hero-facade-my" target="1.8" />
+      <module name="hero-facade-shelfselect" target="1.8" />
+      <module name="hero-facade-trade" target="1.8" />
+      <module name="hero-facade-user" target="1.6" />
+      <module name="hero-parent" target="1.6" />
+      <module name="hero-service-index" target="1.7" />
+      <module name="hero-service-market" target="1.5" />
+      <module name="hero-service-my" target="1.5" />
+      <module name="hero-service-trade" target="1.5" />
+      <module name="hero-service-user" target="1.8" />
+      <module name="huaer-api-client" target="1.8" />
+      <module name="huaer-common" target="1.5" />
+      <module name="huaer-common-config" target="1.5" />
+      <module name="huaer-common-core" target="1.5" />
+      <module name="huaer-facade-user" target="1.5" />
+      <module name="huaer-service-search" target="1.8" />
+      <module name="huaer-service-user" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

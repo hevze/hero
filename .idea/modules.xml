@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/hero-api-client/hero-api-client.iml" filepath="$PROJECT_DIR$/hero-api-client/hero-api-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hero-business-model/hero-business-model.iml" filepath="$PROJECT_DIR$/hero-business-model/hero-business-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hero-common/hero-common.iml" filepath="$PROJECT_DIR$/hero-common/hero-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hero-common-config/hero-common-config.iml" filepath="$PROJECT_DIR$/hero-common-config/hero-common-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hero-common-core/hero-common-core.iml" filepath="$PROJECT_DIR$/hero-common-core/hero-common-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hero-common-model/hero-common-model.iml" filepath="$PROJECT_DIR$/hero-common-model/hero-common-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hero-facade-index/hero-facade-index.iml" filepath="$PROJECT_DIR$/hero-facade-index/hero-facade-index.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hero-facade-market/hero-facade-market.iml" filepath="$PROJECT_DIR$/hero-facade-market/hero-facade-market.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hero-facade-my/hero-facade-my.iml" filepath="$PROJECT_DIR$/hero-facade-my/hero-facade-my.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hero-facade-shelfselect/hero-facade-shelfselect.iml" filepath="$PROJECT_DIR$/hero-facade-shelfselect/hero-facade-shelfselect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hero-facade-trade/hero-facade-trade.iml" filepath="$PROJECT_DIR$/hero-facade-trade/hero-facade-trade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hero-parent/hero-parent.iml" filepath="$PROJECT_DIR$/hero-parent/hero-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hero-service-index/hero-service-index.iml" filepath="$PROJECT_DIR$/hero-service-index/hero-service-index.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hero-service-market/hero-service-market.iml" filepath="$PROJECT_DIR$/hero-service-market/hero-service-market.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hero-service-my/hero-service-my.iml" filepath="$PROJECT_DIR$/hero-service-my/hero-service-my.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hero-service-trade/hero-service-trade.iml" filepath="$PROJECT_DIR$/hero-service-trade/hero-service-trade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/hero-trades.iml" filepath="$PROJECT_DIR$/.idea/hero-trades.iml" />
+    </modules>
+  </component>
+</project>

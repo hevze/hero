@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hero.index.service.core.dao.impl.HeroUserDynamicMapperImpl">
+  <resultMap id="BaseResultMap" type="com.hero.business.model.index.HeroUserDynamic">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="brief" jdbcType="VARCHAR" property="brief" />
+    <result column="imgs" jdbcType="VARCHAR" property="imgs" />
+    <result column="dynamic_type" jdbcType="INTEGER" property="dynamicType" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="comments" jdbcType="INTEGER" property="comments" />
+    <result column="forwards" jdbcType="INTEGER" property="forwards" />
+    <result column="likes" jdbcType="INTEGER" property="likes" />
+    <result column="link_url" jdbcType="VARCHAR" property="linkUrl" />
+    <result column="create_by" jdbcType="INTEGER" property="createBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_by" jdbcType="INTEGER" property="updateBy" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="enable_flag" jdbcType="INTEGER" property="enableFlag" />
+
+    <result column="user_name" jdbcType="INTEGER" property="userName" />
+    <result column="user_header_img" jdbcType="INTEGER" property="userHeaderImg" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.hero.business.model.index.HeroUserDynamic">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+
+
+  <resultMap id="CategoryResultMap" type="com.hero.business.model.index.HeroIndexCategory">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
+  </resultMap>
+
+
+
+  <sql id="table">
+    hero_user_dynamic a
+  </sql>
+
+  <sql id="Base_Column_List">
+    a.id, a.parent_id, a.title, a.brief, a.imgs, a.dynamic_type, a.comments, a.forwards,
+    a.likes, a.link_url, a.create_by, a.create_date,
+    u.user_name,u.user_header_img
+  </sql>
+
+  <sql id="AD_Base_Column_List">
+    a.id, a.title, a.brief, a.imgs, a.link_url
+  </sql>
+  <sql id="Blob_Column_List">
+    a.content
+  </sql>
+
+  <sql id="Left_Join_User">
+     LEFT JOIN hero_user u on a.create_by=u.id
+  </sql>
+
+  <select id="getById" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from <include refid="table"/>
+    <include refid="Left_Join_User"/>
+    where a.id = #{id,jdbcType=INTEGER} and a.enable_flag=1
+  </select>
+
+
+  <select id="selectDynamics" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="dynamicType == null">
+      <include refid="Base_Column_List" />
+    </if>
+    <if test="dynamicType != null">
+      <include refid="AD_Base_Column_List" />
+    </if>
+    from <include refid="table"/>
+    <include refid="Left_Join_User"/>
+    where a.category_id=#{categoryId,jdbcType=INTEGER} and a.enable_flag=1
+    <if test="dynamicType != null">
+      and a.dynamic_type = #{dynamicType}
+    </if>
+    order by a.create_date desc
+  </select>
+
+
+  <select id="selectAttentionDynamicsByUserId" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from <include refid="table"/>
+    <include refid="Left_Join_User"/>
+    LEFT  JOIN hero_user_attention_r b  on  a.create_by=b.user_id
+    where b.create_by=#{userId}
+    order by a.create_date desc
+  </select>
+
+
+
+
+  <select id="selectCategorys"  resultMap="CategoryResultMap">
+    select id,category_name from hero_index_category
+    where enable_flag=1
+  </select>
+
+  <select id="selectDynamicUserIsAttention"  resultType="java.lang.Boolean">
+    SELECT (COUNT(*) >0) attention  FROM hero_user_attention_r where user_id=${attentionId} and create_by=#{userId}
+  </select>
+
+  <insert id="insert" parameterType="com.hero.business.model.index.HeroUserDynamic">
+    insert into <include refid="table"/>
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="brief != null">
+        brief,
+      </if>
+      <if test="imgs != null">
+        imgs,
+      </if>
+      <if test="dynamicType != null">
+        dynamic_type,
+      </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="comments != null">
+        comments,
+      </if>
+      <if test="forwards != null">
+        forwards,
+      </if>
+      <if test="likes != null">
+        likes,
+      </if>
+      <if test="linkUrl != null">
+        link_url,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="enableFlag != null">
+        enable_flag,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null">
+        #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="imgs != null">
+        #{imgs,jdbcType=VARCHAR},
+      </if>
+      <if test="dynamicType != null">
+        #{dynamicType,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="comments != null">
+        #{comments,jdbcType=INTEGER},
+      </if>
+      <if test="forwards != null">
+        #{forwards,jdbcType=INTEGER},
+      </if>
+      <if test="likes != null">
+        #{likes,jdbcType=INTEGER},
+      </if>
+      <if test="linkUrl != null">
+        #{linkUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enableFlag != null">
+        #{enableFlag,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+
+  <update id="update" parameterType="com.hero.business.model.index.HeroUserDynamic">
+    update <include refid="table"/>
+    <set>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null">
+        brief = #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="imgs != null">
+        imgs = #{imgs,jdbcType=VARCHAR},
+      </if>
+      <if test="dynamicType != null">
+        dynamic_type = #{dynamicType,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="comments != null">
+        comments = #{comments,jdbcType=INTEGER},
+      </if>
+      <if test="forwards != null">
+        forwards = #{forwards,jdbcType=INTEGER},
+      </if>
+      <if test="likes != null">
+        likes = #{likes,jdbcType=INTEGER},
+      </if>
+      <if test="linkUrl != null">
+        link_url = #{linkUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enableFlag != null">
+        enable_flag = #{enableFlag,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+</mapper>

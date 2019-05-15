@@ -1,0 +1,34 @@
+## Dubbo
+dubbo.registry.address=47.88.229.250:2181,47.88.229.250:2182,47.88.153.64:2183
+
+#数据库方言
+dialectClass=com.hero.core.mybatis.dialect.MySqlDialect
+#Redis缓存服务地址
+redis.host=47.88.229.250
+redis.port=21838
+redis.password=Tdcq123789.
+#==============rabbitmq  start==================
+rabbitmq.host=47.88.229.250
+rabbitmq.port=5672
+rabbitmq.username=acoin
+rabbitmq.password=Tdcq123789.
+rabbitmq.fanout.exchange.b.t.c.stock.blockchain=fanout.exchange.b.t.c.stock.blockchain
+rabbitmq.topic.stock.flush=queue.exchange.stock.flush
+rabbitmq.fanout.exchange.message=queue.fanout.message
+
+
+#队列
+rabbitmq.queue.b.t.c.stock.timely.blockchain=queue.b.t.c.stock.timely.blockchain
+rabbitmq.queue.stock.flush=queue.stock.flush
+
+#queueName
+rabbitmq.topic.creeper=topic.b.t.c.block.chain.market.creeper
+rabbitmq.topic.monitor.template=rabbitmq.topic.monitor.template
+#########################华尔新闻###########################################
+queueName.creeper.news=queue.b.t.c.block.chain.creeper.news
+queueName.im.message=queueName.im.message
+queueName.monitor.order.add15=queueName.monitor.order15
+queueName.monitor.order.add720=queueName.monitor.order720
+queueName.monitor.trade.buy=queueName.monitor.trade.buy
+queueName.monitor.trade.sell=queueName.monitor.trade.sell
+queueName.monitor.trade.surplusloss=queueName.monitor.trade.surplusloss
