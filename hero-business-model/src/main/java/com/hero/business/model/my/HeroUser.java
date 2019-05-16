@@ -8,7 +8,7 @@ public class HeroUser extends BaseUser{
 
     private String nickName;
 
-    private Boolean accountType;
+    private Integer accountType;
 
 
     public String getLoginAccount() {
@@ -27,12 +27,11 @@ public class HeroUser extends BaseUser{
         this.loginPwd = loginPwd == null ? null : loginPwd.trim();
     }
 
-
-    public Boolean getAccountType() {
+    public Integer getAccountType() {
         return accountType;
     }
 
-    public void setAccountType(Boolean accountType) {
+    public void setAccountType(Integer accountType) {
         this.accountType = accountType;
     }
 

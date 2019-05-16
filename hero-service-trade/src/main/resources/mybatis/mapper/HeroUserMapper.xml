@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hero.my.service.core.biz.dao.impl.HeroUserMapperImpl">
+  <!-- 用户属性 -->
+  <resultMap id="BaseResultMap" type="com.hero.business.model.my.HeroUser">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="login_account" jdbcType="VARCHAR" property="loginAccount" />
+    <result column="login_pwd" jdbcType="VARCHAR" property="loginPwd" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="user_header_img" jdbcType="VARCHAR" property="userHeaderImg" />
+    <result column="account_type" jdbcType="BIT" property="accountType" />
+  </resultMap>
+
+  <!-- 用户扩展属性 -->
+  <resultMap extends="BaseResultMap" id="BaseExtResultMap" type="com.hero.business.model.my.HeroUserExt">
+    <result column="bind_tel" jdbcType="VARCHAR" property="bindTel" />
+    <result column="brief" jdbcType="VARCHAR" property="brief" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="user_card" jdbcType="VARCHAR" property="userCard" />
+    <result column="user_card_name" jdbcType="VARCHAR" property="userCardName" />
+    <result column="user_birthday" jdbcType="TIMESTAMP" property="userBirthday" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+  </resultMap>
+
+  <sql id="table_user">hero_user a</sql>
+  <sql id="table_user_ext">hero_user_ext e</sql>
+
+  <sql id="Base_Column_List">
+    a.id, a.login_account, a.login_pwd, a.user_name, a.nick_name, a.user_header_img, a.account_type
+  </sql>
+
+  <sql id="Base_Ext_Column_List">
+    e.bind_tel,e.brief,e.sex,e.user_card,e.user_card_name,e.user_birthday,e.create_date
+  </sql>
+
+  <sql id="where_user">
+    <if test="loginAccount != null">
+      and a.login_account = #{loginAccount}
+    </if>
+    <if test="bindTel != null">
+      and e.bind_tel = #{bindTel}
+    </if>
+    <if test="userCard != null">
+      and e.user_card = #{userCard}
+    </if>
+  </sql>
+
+  <select id="selectUserByWhere" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Base_Ext_Column_List" />
+    from <include refid="table_user"/> LEFT JOIN  <include refid="table_user_ext"/>  ON a.id = e.user_id
+    where <include refid="where_user"/>
+  </select>
+
+
+
+
+
+  <insert id="insert" parameterType="com.hero.business.model.my.HeroUser">
+    insert into hero_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="loginAccount != null">
+        login_account,
+      </if>
+      <if test="loginPwd != null">
+        login_pwd,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="userHeaderImg != null">
+        user_header_img,
+      </if>
+      <if test="accountType != null">
+        account_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="loginAccount != null">
+        #{loginAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="userHeaderImg != null">
+        #{userHeaderImg,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null">
+        #{accountType,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+
+
+  <insert id="insertUserExt" parameterType="com.hero.business.model.my.HeroUserExt">
+    insert into hero_user_ext
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createBy != null">
+        user_id,
+      </if>
+      <if test="bindTel != null">
+        bind_tel,
+      </if>
+      <if test="brief != null">
+        brief,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="userCard != null">
+        user_card,
+      </if>
+      <if test="userCardName != null">
+        user_card_name,
+      </if>
+      <if test="userBirthday != null">
+        user_birthday,
+      </if>
+      <if test="createDate != null">
+        createDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="bindTel != null">
+        #{bindTel,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null">
+        #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="userCard != null">
+        #{userCard,jdbcType=VARCHAR},
+      </if>
+      <if test="userCardName != null">
+        #{userCardName,jdbcType=VARCHAR},
+      </if>
+      <if test="userBirthday != null">
+        #{userBirthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="update" parameterType="com.hero.business.model.my.HeroUser">
+    update hero_user
+    <set>
+      <if test="loginAccount != null">
+        login_account = #{loginAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="userHeaderImg != null">
+        user_header_img = #{userHeaderImg,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null">
+        account_type = #{accountType,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+  <update id="updateUserExt" parameterType="com.hero.business.model.my.HeroUserExt">
+    update hero_user_ext
+    <set>
+      <if test="bindTel != null">
+        bind_tel = #{bindTel,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null">
+        brief = #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="userCard != null">
+        user_card = #{userCard,jdbcType=VARCHAR},
+      </if>
+      <if test="userCardName != null">
+        user_card_name = #{userCardName,jdbcType=VARCHAR},
+      </if>
+      <if test="userBirthday != null">
+        user_birthday = #{userBirthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where user_id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

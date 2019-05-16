@@ -20,6 +20,7 @@
         <module name="hero-service-index" />
         <module name="hero-service-market" />
         <module name="hero-service-my" />
+        <module name="hero-service-shelfselect" />
         <module name="hero-service-trade" />
       </profile>
     </annotationProcessing>
@@ -39,9 +40,10 @@
       <module name="hero-facade-user" target="1.6" />
       <module name="hero-parent" target="1.6" />
       <module name="hero-service-index" target="1.7" />
-      <module name="hero-service-market" target="1.5" />
-      <module name="hero-service-my" target="1.5" />
-      <module name="hero-service-trade" target="1.5" />
+      <module name="hero-service-market" target="1.7" />
+      <module name="hero-service-my" target="1.7" />
+      <module name="hero-service-shelfselect" target="1.7" />
+      <module name="hero-service-trade" target="1.7" />
       <module name="hero-service-user" target="1.8" />
       <module name="huaer-api-client" target="1.8" />
       <module name="huaer-common" target="1.5" />

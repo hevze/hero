@@ -17,6 +17,7 @@
       <module fileurl="file://$PROJECT_DIR$/hero-service-index/hero-service-index.iml" filepath="$PROJECT_DIR$/hero-service-index/hero-service-index.iml" />
       <module fileurl="file://$PROJECT_DIR$/hero-service-market/hero-service-market.iml" filepath="$PROJECT_DIR$/hero-service-market/hero-service-market.iml" />
       <module fileurl="file://$PROJECT_DIR$/hero-service-my/hero-service-my.iml" filepath="$PROJECT_DIR$/hero-service-my/hero-service-my.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hero-service-shelfselect/hero-service-shelfselect.iml" filepath="$PROJECT_DIR$/hero-service-shelfselect/hero-service-shelfselect.iml" />
       <module fileurl="file://$PROJECT_DIR$/hero-service-trade/hero-service-trade.iml" filepath="$PROJECT_DIR$/hero-service-trade/hero-service-trade.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/hero-trades.iml" filepath="$PROJECT_DIR$/.idea/hero-trades.iml" />
     </modules>

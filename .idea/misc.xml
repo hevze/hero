@@ -19,6 +19,7 @@
         <option value="$PROJECT_DIR$/hero-service-trade/pom.xml" />
         <option value="$PROJECT_DIR$/hero-facade-market/pom.xml" />
         <option value="$PROJECT_DIR$/hero-service-market/pom.xml" />
+        <option value="$PROJECT_DIR$/hero-service-shelfselect/pom.xml" />
       </list>
     </option>
   </component>

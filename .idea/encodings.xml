@@ -14,7 +14,10 @@
     <file url="file://$PROJECT_DIR$/hero-facade-trade" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hero-parent" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hero-service-index" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/huaer-api-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hero-service-market" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hero-service-my" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hero-service-shelfselect" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hero-service-trade" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/huaer-service-search" charset="UTF-8" />
   </component>
 </project>

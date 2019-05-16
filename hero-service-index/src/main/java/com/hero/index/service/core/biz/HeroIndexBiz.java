@@ -40,6 +40,10 @@ public class HeroIndexBiz  {
         indexInfo.setCarousels(carousels);
         // 2. 查询分类
         List<HeroIndexCategory> categories = heroUserDynamicMapper.selectCategorys();
+        HeroIndexCategory category = new HeroIndexCategory();
+        category.setId(0);
+        category.setCategoryName("关注");
+        categories.add(0,category);
         indexInfo.setCategories(categories);
         return indexInfo;
     }
@@ -55,7 +59,7 @@ public class HeroIndexBiz  {
      */
     public List<HeroUserDynamic> list_dynamics(int pageNumber,int pageSize,int categoryId,int userId){
         List<HeroUserDynamic> dynamics = new ArrayList<>();
-        if(categoryId == 1){
+        if(categoryId == 0){
             // 查询用户关注
            dynamics =  heroUserDynamicMapper.selectAttentionDynamicsByUserId(pageNumber,pageSize,userId);
         }else{

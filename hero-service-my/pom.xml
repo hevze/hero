@@ -8,5 +8,41 @@
     <artifactId>hero-service-my</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
+
+    <parent>
+        <groupId>com.hero</groupId>
+        <artifactId>hero-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../hero-parent</relativePath>
+    </parent>
+
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.hero.business</groupId>
+            <artifactId>hero-business-model</artifactId>
+            <version>${hero-business-model.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hero.facade</groupId>
+            <artifactId>hero-facade-my</artifactId>
+            <version>${hero-facade-my.version}</version>
+        </dependency>
+
+    </dependencies>
 </project>
