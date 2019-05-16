@@ -16,15 +16,27 @@ public class HeroTradeExcetion extends BizException {
 
 
     /**
-     * 我的异常
+     * 交易异常
      */
-    public static final int MY_ERROR = 3005001;
+    public static final int _TRADE_ERROR = 3005001;
 
     /**
-     * 手机号不规范
+     *
      */
-    public static final int MY_ERROR_USER_TEL = 3005002;
+    public static final int _TRADE_ERROR_USER_TEL = 3005002;
 
 
+
+
+    public HeroTradeExcetion() {
+    }
+
+    public HeroTradeExcetion(int code, String msgFormat, Object... args) {
+        super(code, msgFormat, args);
+    }
+
+    public HeroTradeExcetion(int code, String msg) {
+        super(code, msg);
+    }
 
 }

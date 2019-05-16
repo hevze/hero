@@ -2,7 +2,8 @@ package com.hero.my.service.core.biz;
 
 import com.hero.business.model.my.HeroUser;
 import com.hero.common.cache.RedisClientTemplate;
-import com.hero.my.facade.constants.MyConstatns;
+import com.hero.my.facade.constants.HeroMyConstatns;
+import com.hero.my.facade.exception.HeroMyExcetion;
 import com.hero.my.service.core.dao.HeroUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -28,16 +29,16 @@ public class HeroUserCheckBiz {
     protected void _check_userRegister(HeroUser user){
 
         switch (user.getAccountType()){
-            case MyConstatns.Key.LOGIN_MB:
+            case HeroMyConstatns.Key.LOGIN_MB:
                 if(!isMobile(user.getLoginAccount())){
-
+                    throw new HeroMyExcetion(HeroMyExcetion._MY_ERROR_USER_TEL, "手机号格式不正确,请核对.");
                 }
                 break;
-            case MyConstatns.Key.LOGIN_WX:
+            case HeroMyConstatns.Key.LOGIN_WX:
                 break;
-            case MyConstatns.Key.LOGIN_QQ:
+            case HeroMyConstatns.Key.LOGIN_QQ:
                 break;
-            case MyConstatns.Key.LOGIN_WB:
+            case HeroMyConstatns.Key.LOGIN_WB:
                 break;
             default:break;
         }

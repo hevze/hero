@@ -18,13 +18,22 @@ public class HeroMyExcetion extends BizException {
     /**
      * 我的异常
      */
-    public static final int MY_ERROR = 3003001;
+    public static final int _MY_ERROR = 3003001;
 
     /**
      * 手机号不规范
      */
-    public static final int MY_ERROR_USER_TEL = 3003002;
+    public static final int _MY_ERROR_USER_TEL = 3003002;
 
 
+    public HeroMyExcetion() {
+    }
 
+    public HeroMyExcetion(int code, String msgFormat, Object... args) {
+        super(code, msgFormat, args);
+    }
+
+    public HeroMyExcetion(int code, String msg) {
+        super(code, msg);
+    }
 }

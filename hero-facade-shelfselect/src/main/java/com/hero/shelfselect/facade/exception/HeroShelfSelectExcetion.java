@@ -16,15 +16,26 @@ public class HeroShelfSelectExcetion extends BizException {
 
 
     /**
-     * 我的异常
+     * 自选异常
      */
-    public static final int MY_ERROR = 3004001;
+    public static final int _SHELFSELECT_ERROR = 3004001;
 
     /**
-     * 手机号不规范
+     *
      */
-    public static final int MY_ERROR_USER_TEL = 3004002;
+    public static final int _SHELFSELECT_ERROR_USER_TEL = 3004002;
 
 
+
+    public HeroShelfSelectExcetion() {
+    }
+
+    public HeroShelfSelectExcetion(int code, String msgFormat, Object... args) {
+        super(code, msgFormat, args);
+    }
+
+    public HeroShelfSelectExcetion(int code, String msg) {
+        super(code, msg);
+    }
 
 }

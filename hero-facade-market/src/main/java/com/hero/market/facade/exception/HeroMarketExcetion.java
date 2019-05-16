@@ -18,13 +18,26 @@ public class HeroMarketExcetion extends BizException {
     /**
      * 我的异常
      */
-    public static final int MY_ERROR = 3002001;
+    public static final int _MARET_ERROR = 3002001;
 
     /**
      * 手机号不规范
      */
-    public static final int MY_ERROR_USER_TEL = 3002002;
+    public static final int _MARET_ERROR_USER_TEL = 3002002;
 
+
+
+
+    public HeroMarketExcetion() {
+    }
+
+    public HeroMarketExcetion(int code, String msgFormat, Object... args) {
+        super(code, msgFormat, args);
+    }
+
+    public HeroMarketExcetion(int code, String msg) {
+        super(code, msg);
+    }
 
 
 }
